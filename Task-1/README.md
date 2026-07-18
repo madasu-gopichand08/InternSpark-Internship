@@ -1,14 +1,14 @@
-# ❤️ Heart Disease Prediction using Machine Learning
+#  Heart Disease Prediction using Machine Learning
 
-## 📌 Project Overview
+## Project Overview
 
 This project predicts whether a patient has heart disease using supervised machine learning algorithms.
 
-## 📂 Dataset
+##  Dataset
 
 Heart Disease UCI Dataset
 
-## 🛠 Technologies
+##  Technologies
 
 - Python
 - Pandas
@@ -18,12 +18,12 @@ Heart Disease UCI Dataset
 - Scikit-learn
 - Jupyter Notebook
 
-## 🤖 Models Used
+##  Models Used
 
 - Logistic Regression
 - Random Forest
 
-## 📊 Evaluation Metrics
+##  Evaluation Metrics
 
 - Accuracy
 - Precision
@@ -32,14 +32,14 @@ Heart Disease UCI Dataset
 - Cross Validation
 - ROC-AUC
 
-## 📈 Results
+##  Results
 
 | Model | Accuracy | ROC-AUC |
 |-------|---------:|---------:|
 | Logistic Regression | 85% | 0.93 |
-| Random Forest | 84% | *(Add your RF ROC-AUC here)* |
+| Random Forest | 84% | 0.93 |
 
-## 📁 Project Structure
+##  Project Structure
 
 ```text
 Task-1/
@@ -52,6 +52,6 @@ Task-1/
 └── requirements.txt
 ```
 
-## 📌 Conclusion
+##  Conclusion
 
 Logistic Regression achieved the best performance for this dataset, with an accuracy of 85% and an ROC-AUC score of 0.93.
