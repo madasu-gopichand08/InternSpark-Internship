@@ -160,3 +160,23 @@ Logistic Regression achieved the highest performance with:
 - Scikit-learn Documentation
 - Pandas Documentation
 - NumPy Documentation
+
+---
+
+##  Project Screenshots
+
+### Target Distribution
+
+![Target Distribution](images/TARGET DISTRIBUTION.png)
+
+---
+
+### Correlation Heatmap
+
+![Correlation Heatmap](images/CORRELATION MATRIX.png)
+
+---
+
+### ROC Curve Comparison
+
+![ROC Curve](images/RF AND LG Comparision.png)
