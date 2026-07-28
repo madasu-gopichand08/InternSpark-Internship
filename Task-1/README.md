@@ -167,16 +167,16 @@ Logistic Regression achieved the highest performance with:
 
 ### Target Distribution
 
-![Target Distribution](images/TARGET DISTRIBUTION.png)
+![Target Distribution](images/TARGET_DISTRIBUTION.png)
 
 ---
 
 ### Correlation Heatmap
 
-![Correlation Heatmap](images/CORRELATION MATRIX.png)
+![Correlation Heatmap](images/CORRELATION_MATRIX.png)
 
 ---
 
 ### ROC Curve Comparison
 
-![ROC Curve](images/RF AND LG Comparision.png)
+![ROC Curve](images/RF_LG_Comparison.png)
