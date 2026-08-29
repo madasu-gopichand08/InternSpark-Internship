@@ -1,1 +1,8 @@
-
+tensorflow==2.20.0
+opencv-python
+numpy
+pandas
+scikit-learn
+matplotlib
+mediapipe==0.10.35
+tqdm
