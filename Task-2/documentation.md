@@ -1,86 +1,126 @@
-# Driver Drowsiness Detection System — Technical Documentation
+# Driver Drowsiness Detection System
 
-## 1. Project Overview
+## Technical Documentation
 
-The Driver Drowsiness Detection System is a real-time computer vision and deep learning application designed to identify signs of driver drowsiness from facial video.
-
-The system consists of two major components:
-
-1. A deep learning model trained on the Driver Drowsiness Dataset (DDD).
-2. A real-time webcam inference system that combines the trained model with facial behavioral analysis.
-
-The deep learning pipeline uses a pretrained MobileNetV2 backbone for visual feature extraction, an LSTM for temporal modeling, and a custom attention layer for temporal feature weighting.
-
-The webcam application additionally uses OpenCV and MediaPipe facial landmarks to estimate eye and mouth behavior through Eye Aspect Ratio (EAR) and Mouth Aspect Ratio (MAR).
+**Author:** Gopichand Madasu  
+**Project:** InternSpark — Task 2  
+**Domain:** Deep Learning / Computer Vision
 
 ---
 
-## 2. System Architecture
+# 1. Project Overview
 
-### Training Pipeline
+The Driver Drowsiness Detection System is a computer vision and deep learning based system designed to identify signs of driver drowsiness from facial video sequences.
+
+The project consists of two major components:
+
+1. A deep learning training pipeline developed using the Driver Drowsiness Dataset (DDD).
+2. A real-time webcam detection system developed locally using the trained model together with facial behavioral analysis.
+
+The deep learning model uses a pretrained MobileNetV2 backbone for visual feature extraction, an LSTM for temporal modeling, and a custom attention mechanism for emphasizing important temporal features.
+
+The real-time webcam application additionally uses OpenCV and MediaPipe facial landmarks to analyze eye closure and yawning behavior using Eye Aspect Ratio (EAR) and Mouth Aspect Ratio (MAR).
+
+---
+
+# 2. Objectives
+
+The main objectives of the project are:
+
+- Detect driver drowsiness from facial video sequences.
+- Extract meaningful visual features using a pretrained CNN.
+- Model temporal changes across consecutive facial frames.
+- Use temporal attention to emphasize important parts of a sequence.
+- Evaluate the model using subjects that were not used during training.
+- Deploy the trained model for real-time webcam inference.
+- Incorporate facial behavioral signals such as eye closure and yawning.
+- Provide an audible warning when drowsiness is detected.
+
+---
+
+# 3. System Architecture
+
+The complete system consists of a training pipeline and a real-time inference pipeline.
+
+## 3.1 Training Pipeline
 
 ```text
 Driver Drowsiness Dataset (DDD)
-              ↓
-       Filename Parsing
-              ↓
+             |
+             v
+      Filename Parsing
+             |
+             v
         Run Detection
-              ↓
+             |
+             v
       Temporal Windows
-              ↓
+             |
+             v
      Subject-Level Split
-              ↓
-   Image Normalization
-   ├── Grayscale
-   ├── CLAHE
-   └── Mean Brightness Normalization
-              ↓
-        5-Frame Sequence
-              ↓
-      MobileNetV2 CNN
-              ↓
-          Dense(128)
-              ↓
-          LSTM(128)
-              ↓
-       Temporal Attention
-              ↓
-          Dense(64)
-              ↓
-        Sigmoid Output
-              ↓
-     Drowsy / Not Drowsy
-text''' 
-3. Dataset
+             |
+             v
+      Image Preprocessing
+             |
+             +----------------------+
+             |                      |
+             v                      |
+         Grayscale                 |
+             |                      |
+             v                      |
+            CLAHE                  |
+             |                      |
+             v                      |
+    Mean Brightness               |
+      Normalization               |
+             |                      |
+             +----------+-----------+
+                        |
+                        v
+                 5-Frame Sequence
+                        |
+                        v
+                  MobileNetV2
+                        |
+                        v
+                   Dense(128)
+                        |
+                        v
+                    LSTM(128)
+                        |
+                        v
+               Temporal Attention
+                        |
+                        v
+                    Dense(64)
+                        |
+                        v
+                     Sigmoid
+                        |
+                        v
+              Drowsy / Not Drowsy
 
-The project uses the Driver Drowsiness Dataset (DDD).
-
-The dataset is organized into two primary classes:
-
-Drowsy
-Non Drowsy
-
-The training pipeline initially parses filenames to extract subject information, frame sequence numbers, labels, and file paths.
-
-The dataset processing identified:
-
-41,793 image files
-28 subjects
-1,172 continuous sub-runs
-
-Continuous runs were detected using sequence-number gaps so that unrelated image sequences were not combined into the same temporal window.
-
-4. Dataset Parsing
-
-Each image is converted into a metadata record containing:
-subject
-sequence number
-label
-filepath
-
-The label mapping used by the training pipeline is:
-Drowsy     → 1
-Non Drowsy  → 0
-A run_key is created from the subject, label, and detected run identifier.
-This allows temporal windows to be constructed only from frames belonging to the same recording run.
+3.2 Real-Time Webcam Pipeline
+Webcam
+  |
+  v
+DNN Face Detection
+  |
+  v
+Face Preprocessing
+  |
+  v
+5-Frame Buffer
+  |
+  v
+MobileNetV2
+  |
+  v
+LSTM
+  |
+  v
+Temporal Attention
+  |
+  v
+**CNN Drowsiness Signal**
 
