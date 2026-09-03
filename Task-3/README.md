@@ -140,6 +140,30 @@ For an alert sequence, the API returns:
   "frames_processed": 5
 }
 
+## Sample Request
+
+The `/predict` endpoint accepts exactly five image frames.
+
+```bash
+curl -X POST "http://127.0.0.1:8000/predict" \
+  -H "accept: application/json" \
+  -H "Content-Type: multipart/form-data" \
+  -F "frame1=@drowsy1.png" \
+  -F "frame2=@drowsy2.png" \
+  -F "frame3=@drowsy3.png" \
+  -F "frame4=@drowsy4.png" \
+  -F "frame5=@drowsy5.png"
+```
+Example response:
+
+{
+  "prediction": "Drowsy",
+  "probability": 0.999999,
+  "threshold": 0.5,
+  "frames_processed": 5
+}
+
+
 ## Docker Verification
 
 The containerized API was tested locally using both classes.
