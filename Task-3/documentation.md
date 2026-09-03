@@ -425,8 +425,3 @@ Improved error handling and request validation.
 API support for video streams or real-time frame sequences.
 Model optimization for lower inference latency.
 Automated testing and continuous integration.
-## 13. Author
-
-Gopichand Madasu
-
-InternSpark — Artificial Intelligence Internship
