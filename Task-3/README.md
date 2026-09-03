@@ -92,8 +92,8 @@ Swagger API documentation:
 http://127.0.0.1:8000/docs
 
 
-### API Endpoints
-## GET /
+## API Endpoints
+### GET /
 
 Checks whether the API is running.
 
@@ -106,7 +106,7 @@ Example response:
   "sequence_length": 5,
   "image_size": 96
 }
-## GET /model-info
+### GET /model-info
 
 Returns information about the deployed model.
 
